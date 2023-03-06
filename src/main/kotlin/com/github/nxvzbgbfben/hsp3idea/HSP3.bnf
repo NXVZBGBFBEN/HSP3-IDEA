@@ -1,0 +1,20 @@
+{
+    parserClass = "com.github.nxvzbgbfben.hsp3idea.parser.HSP3Parser"
+
+    extends = "com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+    psiClassPrefix = "HSP3"
+    psiImplClassSuffix = "Impl"
+    psiPackage = "com.github.nxvzbgbfben.hsp3idea.psi"
+    psiImplPackage = "com.github.nxvzbgbfben.hsp3idea.psi.impl"
+
+    elementTypeHolderClass = "com.github.nxvzbgbfben.hsp3idea.psi.HSP3Types"
+    elementTypeClass = "com.github.nxvzbgbfben.hsp3idea.psi.HSP3ElementType"
+    tokenTypeClass = "com.github.nxvzbgbfben.hsp3idea.psi.HSP3TokenType"
+}
+
+hsp3File ::= item_*
+
+private item_ ::= (property|COMMENT|CRLF)
+
+property ::= (KEY? SEPARATOR VALUE?) | KEY

@@ -1,18 +1,17 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
-<idea-plugin>
+<idea-plugin url="https://github.com/NXVZBGBFBEN/HSP3-IDEA" require-restart="true">
     <id>com.github.nxvzbgbfben.hsp3idea</id>
-    <name>IntelliJ Platform Plugin HSP3-IDEA</name>
-    <vendor>nxvzbgbfben</vendor>
+    <name>HSP3-IDEA</name>
+    <vendor url="https://github.com/NXVZBGBFBEN">NXVZBGBFBEN</vendor>
 
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.nxvzbgbfben.hsp3idea.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.nxvzbgbfben.hsp3idea.services.MyProjectService"/>
+        <fileType
+                name="HSP3 File"
+                implementationClass="com.github.nxvzbgbfben.hsp3idea.HSP3FileType"
+                fieldName="INSTANCE"
+                language="HSP3"
+                extensions="hsp"/>
     </extensions>
-
-    <applicationListeners>
-        <listener class="com.github.nxvzbgbfben.hsp3idea.listeners.MyProjectManagerListener"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
-    </applicationListeners>
 </idea-plugin>
